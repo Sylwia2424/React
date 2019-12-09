@@ -1,7 +1,9 @@
 import shortid from 'shortid';
+import searchString from './searchStringRedux.js';
+//import card from '../Card/Card.js';
 
 // selectors
-export const getCardsForColumn = ({Cards}, ColumnId) => Cards.filter(Card => Card.ColumnId == ColumnId);
+export const getCardsForColumn = ({Cards}, ColumnId) => Cards.filter(Card => Card.ColumnId == ColumnId && new RegExp(searchString, 'i').test(Card.title));
 
 // action name creator
 const reducerName = 'Cards';

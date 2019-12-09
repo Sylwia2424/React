@@ -8,22 +8,25 @@ import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator.js';
 
 
+
 class List extends React.Component {
 
   static propTypes = {
     title: PropTypes.node.isRequired,
-    description: PropTypes.node,
-    columns: PropTypes.array,
     image: PropTypes.string,
+    description: PropTypes.node,
+    columns: PropTypes.array.isRequired,
     addColumn: PropTypes.func,
   };
 
   static defaultProps = {
     description: settings.defaultListDescription,
-  }
+  };
 
   render() {
     const {title, image, description, columns, addColumn} = this.props;
+    console.log(addColumn);
+
     return (
       <section className={styles.component}>
         <Hero titleText={title} image={image}/>
@@ -33,10 +36,10 @@ class List extends React.Component {
         <div className={styles.columns}>
           {columns.map(columnData => (
             <Column key={columnData.id} {...columnData} />
-          ))}
+          ))};
         </div>
         <div className={styles.creator}>
-          <Creator text={settings.columnCreatorText} action={title => addColumn(title)}/>
+          <Creator text={settings.columnCreatorText} action={addColumn}/>
         </div>
       </section>
     );
