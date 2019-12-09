@@ -17,9 +17,9 @@ class Column extends React.Component {
     addCard: PropTypes.func,
   };
 
-  //static defaultProps = {
-  //  icon: settings.defaultListDescription,
-  //};
+  static defaultProps = {
+    icon: settings.defaultListDescription,
+  };
 
   static defaultProps = {
     icon: settings.defaultColumnIcon,
@@ -37,7 +37,7 @@ class Column extends React.Component {
           ))}
         </div>
         <div className={styles.creator}>
-          <Creator text={settings.cardCreatorText} action={title => addCard(title)}/>
+          <Creator text={settings.cardCreatorText} action={addCard}/>
         </div>
       </section>
     );
