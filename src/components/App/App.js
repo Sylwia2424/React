@@ -7,9 +7,9 @@ import Search from '../Search/Search.js';
 
 class App extends React.Component {
   static propTypes = {
-    title: PropTypes.node,
-    subtitle: PropTypes.node,
-    lists: PropTypes.array,
+    title: PropTypes.node.isRequired,
+    subtitle: PropTypes.node.isRequired,
+    lists: PropTypes.array.isRequired,
   };
   render() {
 
@@ -19,7 +19,7 @@ class App extends React.Component {
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
-        {Search}
+        <Search/>
         {lists.map(listData => (
           <List key={listData.id} {...listData} />
         ))}

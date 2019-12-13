@@ -3,7 +3,7 @@ import searchString from './searchStringRedux.js';
 //import card from '../Card/Card.js';
 
 // selectors
-export const getCardsForColumn = ({Cards}, ColumnId) => Cards.filter(Card => Card.ColumnId == ColumnId && new RegExp(searchString, 'i').test(Card.title));
+export const getCardsForColumn = ({cards}, columnId) => cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title));
 
 // action name creator
 const reducerName = 'Cards';
