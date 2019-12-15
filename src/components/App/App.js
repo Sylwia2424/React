@@ -1,32 +1,22 @@
 import React from 'react';
-import styles from './App.scss';
-import PropTypes from 'prop-types';
-import List from '../List/ListContainer.js';
-//import {pageContents /*listData*/} from '../../data/dataStore';
-import Search from '../Search/Search.js';
+import Home from '../Home/HomeContainer';
+import Info from '../Info/Info';
+import FAQ from '../FAQ/FAQ.js';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import MainLayout from '../MainLayout/MainLayout';
 
-class App extends React.Component {
-  static propTypes = {
-    title: PropTypes.node.isRequired,
-    subtitle: PropTypes.node.isRequired,
-    lists: PropTypes.array.isRequired,
-  };
-  render() {
+const App = () => (
+  <BrowserRouter>
+    <MainLayout>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/info' component={Info} />
+        <Route exact path='/faq' component={FAQ} />
 
-    const {title, subtitle, lists} = this.props;
-
-    return (
-      <main className={styles.component}>
-        <h1 className={styles.title}>{title}</h1>
-        <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search/>
-        {lists.map(listData => (
-          <List key={listData.id} {...listData} />
-        ))}
-      </main>
-    );
-  }
-}
-
+      </Switch>
+    </MainLayout>
+  </BrowserRouter>
+  
+);
 
 export default App;
