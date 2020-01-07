@@ -1,10 +1,10 @@
+/* global*/
 
-const jsonServer = require('http-server ');
+const jsonServer = require('http-server');
 const server = jsonServer.create();
-const router = jsonServer.router('dist/db/app.json');
+const router = jsonServer.router('dist/scripts_bundle.js');
 const middlewares = jsonServer.defaults({
   static: 'dist',
-  noCors: true,
 });
 const port = process.env.PORT || 3131;
 
