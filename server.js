@@ -1,8 +1,8 @@
 /* global*/
 
-const jsonServer = require('http-server');
+const jsonServer = require('http-server dist');
 const server = jsonServer.create();
-const router = jsonServer.router('dist/scripts_bundle.js');
+const router = jsonServer.router('dist/index.html');
 const middlewares = jsonServer.defaults({
   static: 'dist',
 });
