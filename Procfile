@@ -1,2 +1,1 @@
-
 web: http-server dist
